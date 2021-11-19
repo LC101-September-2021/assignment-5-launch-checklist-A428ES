@@ -34,7 +34,7 @@ function validateInput(testInput) {
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     if(list.length > 0){
         document.getElementById("faultyItems").style.visibility = "visible";
-        document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
+        document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready for Launch";
         document.getElementById("launchStatus").style = "color: red;"
         let splitTemp = '';
 

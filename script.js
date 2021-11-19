@@ -46,9 +46,11 @@ window.addEventListener("load", function() {
             if(Number(formArray[3]) > 10000){
                 failedItems.push('cargoStatus:Cargo mass too heavy for launch');
             }
-            event.preventDefault();
+            
             formSubmission(document, failedItems, formArray[0], formArray[1], formArray[2], formArray[3]);
         }
+
+        event.preventDefault();
     });
     
 
