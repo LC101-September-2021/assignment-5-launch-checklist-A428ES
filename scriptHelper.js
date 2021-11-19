@@ -32,27 +32,34 @@ function validateInput(testInput) {
  
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    if(list.length > 0){
-        document.getElementById("faultyItems").style.visibility = "visible";
-        document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready for Launch";
-        document.getElementById("launchStatus").style = "color: red;"
-        let splitTemp = '';
-
-        for(let i=0;i<list.length;i++){
-            splitTemp = list[i].split(":");
-            console.log(splitTemp);
-            document.getElementById(splitTemp[0]).innerHTML = splitTemp[1];
-            document.getElementById(splitTemp[0]).style = "color: red";
-        }
+    let issueDetected = false;
+    let launchStat = document.getElementById("launchStatus");
+    let listVisible = document.getElementById("faultyItems");
+    list.fuelStatus.style.color = 'green';
+    list.cargoStatus.style.color = 'green';
+    
+    if(fuelLevel < 10000){
+        list.fuelStatus.innerHTML = "Fuel level too low";
+        list.cargoStatus.style.color = 'red';
+        issueDetected = true;
+    }
+    
+    if(cargoLevel > 10000){
+       list.cargoStatus.innerHTML = "Cargo level too high";
+        list.cargoStatus.style.color = 'red';
+        issueDetected = true;
+    }
+    
+    if(issueDetected === true){
+        launchStat.innerHTML = "Shuttle is Not Ready for launch";
+        listVisible.style.visibility = "visible";
     } else {
-        document.getElementById("faultyItems").style.visibility = "hidden";
-        document.getElementById("launchStatus").innerHTML = "Shuttle is Ready for launch";
+        launchStat.innerHTML = "Shuttle is Ready for launch";
+        listVisible.style.visibility = "hidden";
     }
 
-    let pilotStat = document.getElementById("pilotStatus");
-    let coPilotStat = document.getElementById("copilotStatus");
-    pilotStat.innerHTML =  `Pilot ${pilot} is ready for launch`;
-    coPilotStat.innerHTML = `Co-pilot ${copilot} is ready for launch`;
+    list.pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch.`;
+    list.copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
 }
 
 async function myFetch() {
