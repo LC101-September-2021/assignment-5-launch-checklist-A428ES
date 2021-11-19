@@ -46,6 +46,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         }
     } else {
         document.getElementById("faultyItems").style.visibility = "hidden";
+        document.getElementById("launchStatus").innerHTML = "Shuttle is Ready for launch";
     }
 
     let pilotStat = document.getElementById("pilotStatus");

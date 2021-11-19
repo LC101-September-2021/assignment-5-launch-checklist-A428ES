@@ -39,12 +39,12 @@ window.addEventListener("load", function() {
         } else {
             // check fuel against guidelines, push into failed list if not acceptable
             if(Number(formArray[2]) < 10000){
-                failedItems.push('fuelStatus:Fuel Level is too low.');
+                failedItems.push('fuelStatus:Fuel level too low for launch.');
             }
 
             // check cargo against guidelines, push into failed list if not acceptable
             if(Number(formArray[3]) > 10000){
-                failedItems.push('cargoStatus:Cargo mass is too high.');
+                failedItems.push('cargoStatus:Cargo mass too heavy for launch.');
             }
             event.preventDefault();
             formSubmission(document, failedItems, formArray[0], formArray[1], formArray[2], formArray[3]);
