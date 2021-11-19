@@ -44,17 +44,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
             document.getElementById(splitTemp[0]).innerHTML = splitTemp[1];
             document.getElementById(splitTemp[0]).style = "color: red";
         }
-
-        let pilotStat = document.getElementById("pilotStatus");
-        let coPilotStat = document.getElementById("copilotStatus");
-
-        pilotStat.innerHTML =  `Pilot ${pilot} Ready`;
-        coPilotStat.innerHTML = `Co-pilot ${copilot} Ready`;
-
-
     } else {
         document.getElementById("faultyItems").style.visibility = "hidden";
     }
+
+    let pilotStat = document.getElementById("pilotStatus");
+        let coPilotStat = document.getElementById("copilotStatus");
+        pilotStat.innerHTML =  `Pilot ${pilot} Ready`;
+        coPilotStat.innerHTML = `Co-pilot ${copilot} Ready`;
 
     
 }
