@@ -32,7 +32,7 @@ function validateInput(testInput) {
  
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    if(list.length > 1){
+    if(list.length >= 1){
         document.getElementById("faultyItems").style.visibility = "visible";
         document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
         document.getElementById("launchStatus").style = "color: red;"
@@ -44,6 +44,16 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
             document.getElementById(splitTemp[0]).innerHTML = splitTemp[1];
             document.getElementById(splitTemp[0]).style = "color: red";
         }
+
+        let pilotStat = document.getElementById("pilotStatus");
+        let coPilotStat = document.getElementById("copilotStatus");
+
+        pilotStat.innerHTML =  `Pilot ${pilot} Ready`;
+        coPilotStat.innerHTML = `Co-pilot ${copilot} Ready`;
+
+
+    } else {
+        document.getElementById("faultyItems").style.visibility = "hidden";
     }
 
     
@@ -52,8 +62,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 async function myFetch() {
     let planetsReturned;
  
-    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
-         return response.json().then(function (json){
+    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then(response =>  {
+         return response.json().then(json => {
              return json;
         })
     });
