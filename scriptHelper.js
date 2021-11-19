@@ -2,38 +2,67 @@
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-   // Here is the HTML formatting for our mission target div.
-   /*
+    let missTarget = document.getElementById("missionTarget");
+
+            missTarget.innerHTML = `
                 <h2>Mission Destination</h2>
                 <ol>
-                    <li>Name: </li>
-                    <li>Diameter: </li>
+                    <li>Name: ${name}</li>
+                    <li>Diameter: ${diameter} </li>
                     <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
+                    <li>Distance from Earth: ${distance} </li>
+                    <li>Number of Moons: ${moons}</li>
                 </ol>
-                <img src="">
-   */
+                <img src="${imageUrl}">`;
+
 }
 
 function validateInput(testInput) {
-   
-}
+    // check if empty input, string status, and number status
+    if(testInput !== '' && testInput !== null){
+         if(isNaN(testInput)){
+             return "Not a Number";
+         } else {
+             return "Is a Number";
+         }
+    } else {
+        return "Empty";
+    }
+ }
+ 
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
+    if(list.length > 1){
+        document.getElementById("faultyItems").style.visibility = "visible";
+        document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
+        document.getElementById("launchStatus").style = "color: red;"
+        let splitTemp = '';
+
+        for(let i=0;i<list.length;i++){
+            splitTemp = list[i].split(":");
+            console.log(splitTemp);
+            document.getElementById(splitTemp[0]).innerHTML = splitTemp[1];
+            document.getElementById(splitTemp[0]).style = "color: red";
+        }
+    }
+
+    
 }
 
 async function myFetch() {
     let planetsReturned;
-
-    planetsReturned = await fetch().then( function(response) {
-        });
-
+ 
+    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+         return response.json().then(function (json){
+             return json;
+        })
+    });
+    
     return planetsReturned;
 }
 
 function pickPlanet(planets) {
+    return Math.floor(Math.random() * planets.length);
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
