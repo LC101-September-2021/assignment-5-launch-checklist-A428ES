@@ -85,7 +85,7 @@ async function myFetch() {
 function pickPlanet(planets) {
     let returnRandom = Math.floor(Math.random() * planets.length);
 	
-	return returnRandom;
+	return planets[returnRandom];
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;

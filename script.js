@@ -51,13 +51,8 @@ window.addEventListener("load", event => {
         console.log(listedPlanets);
     }).then(function () {
         console.log(listedPlanets);
-        let thePlanet = listedPlanets[pickPlanet(listedPlanets)];
-/*      "name": "Tatooine",
-       "diameter": "10465 km",
-       "star": "Tatoo I & Tatoo II",
-       "distance": "43000 light years from galactic core",
-       "image": "https://www.nasa.gov/sites/default/files/images/587837main_Kepler16_transit_art2_full.jpg",
-       "moons": 3*/
+        let thePlanet = picketPlanet(listedPlanets);
+		
         addDestinationInfo(document, thePlanet.name, thePlanet.diameter, thePlanet.star, thePlanet.distance, thePlanet.moons, thePlanet.image);
     })
 
