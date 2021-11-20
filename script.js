@@ -1,11 +1,10 @@
 // Write your JavaScript code here!
 window.addEventListener("load", event => {
     document.getElementById("faultyItems").style.visibility = "hidden";
-	let formSubmit = document.getElementById("formSubmit");
+	let formSubmit = document.querySelector("form");
     
 	formSubmit.addEventListener("submit", event => {
-        event.preventDefault();
-
+		event.preventDefault();
         let stopSubmit = false; // for stopping form submission
 
         // put all form inputs in an array for mapping, and access
@@ -38,6 +37,8 @@ window.addEventListener("load", event => {
         if(stopSubmit !== true){
              formSubmission(document, document.getElementById("faultyItems"), formArray[0], formArray[1], formArray[2], formArray[3]);
         }
+		
+		event.preventDefault();
     });
     
 
