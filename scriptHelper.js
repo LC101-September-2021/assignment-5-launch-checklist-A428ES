@@ -48,15 +48,13 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         list.querySelector("#cargoStatus").style.color = 'rgb(199, 37, 78)';
         issueDetected = true;
     }
-    
+    list.style.visibility = "visible";
     if(issueDetected === true){
         launchStat.style.color = 'rgb(199, 37, 78)';
         launchStat.innerHTML = "Shuttle Not Ready for Launch";
-        list.style.visibility = "visible";
     } else {
         launchStat.style.color = 'rgb(199, 37, 78)';
         launchStat.innerHTML = "Shuttle is Ready for Launch";
-        list.style.visibility = "hidden";
     }
 
     list.querySelector("#pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`;
