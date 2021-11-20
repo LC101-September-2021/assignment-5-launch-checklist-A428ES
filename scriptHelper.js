@@ -62,7 +62,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         launchStat.style.color = 'rgb(199, 37, 78)';
         launchStat.innerHTML = "Shuttle Not Ready for Launch";
     } else {
-        launchStat.style.color = 'rgb(199, 37, 78)';
+        launchStat.style.color = 'rgb(65, 159, 106)';
         launchStat.innerHTML = "Shuttle is Ready for Launch";
     }
 
