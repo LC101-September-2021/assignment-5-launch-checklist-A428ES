@@ -34,17 +34,11 @@ window.addEventListener("load", function() {
 
         // if the stopSubmit flag has been raised, terminate the submission
         if(stopSubmit !== true){
-            // check fuel against guidelines, push into failed list if not acceptable
-            if(Number(formArray[2]) < 10000){
-                failedItems.push('fuelStatus:Fuel level too low for launch');
-            }
-
-            // check cargo against guidelines, push into failed list if not acceptable
-            if(Number(formArray[3]) > 10000){
-                failedItems.push('cargoStatus:Cargo mass too heavy for launch');
-            }
-            
+			event.preventDefault();
+			
             formSubmission(document, document.getElementById("faultyItems"), formArray[0], formArray[1], formArray[2], formArray[3]);
+			
+			 event.preventDefault();
         }
 
         event.preventDefault();
