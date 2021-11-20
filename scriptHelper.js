@@ -37,13 +37,13 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     list.querySelector("#fuelStatus").style.color = 'rgb(65, 159, 106)';
     list.querySelector("#cargoStatus").style.color = 'rgb(65, 159, 106)';
     
-    if(fuelLevel < 10000){
+    if(fuelLevel < 10001){
         list.querySelector("#fuelStatus").innerHTML = "Fuel level too low for launch";
         list.querySelector("#fuelStatus").style.color = 'rgb(199, 37, 78)';
         issueDetected = true;
     }
     
-    if(cargoLevel > 10000){
+    if(cargoLevel > 10001){
         list.querySelector("#cargoStatus").innerHTML = "Cargo mass too heavy for launch";
         list.querySelector("#cargoStatus").style.color = 'rgb(199, 37, 78)';
         issueDetected = true;
@@ -55,7 +55,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         list.style.visibility = "visible";
     } else {
         launchStat.style.color = 'rgb(199, 37, 78)';
-        launchStat.innerHTML = "Shuttle is Ready for launch";
+        launchStat.innerHTML = "Shuttle is Ready for Launch";
         list.style.visibility = "hidden";
     }
 
