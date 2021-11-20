@@ -4,8 +4,10 @@ window.addEventListener("load", function() {
     let formSubmit = document.querySelector("form");
 
     formSubmit.addEventListener("submit", function(event) {
-        let stopSubmit = false; // for stopping form submission
+        event.preventDefault();
         
+        let stopSubmit = false; // for stopping form submission
+
         // put all form inputs in an array for mapping, and access
         let formArray = [formSubmit.pilotName.value, formSubmit.copilotName.value, formSubmit.fuelLevel.value, formSubmit.cargoMass.value]; 
 
@@ -35,14 +37,8 @@ window.addEventListener("load", function() {
 
         // if the stopSubmit flag has been raised, terminate the submission
         if(stopSubmit !== true){
-			event.preventDefault();
-			
             formSubmission(document, document.getElementById("faultyItems"), formArray[0], formArray[1], formArray[2], formArray[3]);
-			
-			 event.preventDefault();
         }
-
-        event.preventDefault();
     });
     
 
