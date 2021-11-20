@@ -59,7 +59,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         list.style.visibility = "hidden";
     }
 
-    list.querySelector("#pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch.`;
+    list.querySelector("#pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`;
     list.querySelector("#copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
 }
 
