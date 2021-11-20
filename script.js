@@ -1,10 +1,11 @@
 // Write your JavaScript code here!
 window.addEventListener("load", function() {
+    document.getElementById("faultyItems").style.visibility = "hidden";
     let formSubmit = document.querySelector("form");
 
     formSubmit.addEventListener("submit", function(event) {
         let stopSubmit = false; // for stopping form submission
-        document.getElementById("faultyItems").style.visibility = "hidden";
+        
         // put all form inputs in an array for mapping, and access
         let formArray = [formSubmit.pilotName.value, formSubmit.copilotName.value, formSubmit.fuelLevel.value, formSubmit.cargoMass.value]; 
 
