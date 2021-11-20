@@ -51,7 +51,7 @@ window.addEventListener("load", event => {
         console.log(listedPlanets);
     }).then(function () {
         console.log(listedPlanets);
-        let thePlanet = picketPlanet(listedPlanets);
+        let thePlanet = pickPlanet(listedPlanets);
 		
         addDestinationInfo(document, thePlanet.name, thePlanet.diameter, thePlanet.star, thePlanet.distance, thePlanet.moons, thePlanet.image);
     })
