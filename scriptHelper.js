@@ -36,6 +36,7 @@ function validateInput(testInput) {
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let issueDetected = false;
+
     let launchStat = document.getElementById("launchStatus");
     list.querySelector("#fuelStatus").style.color = 'rgb(65, 159, 106)';
     list.querySelector("#cargoStatus").style.color = 'rgb(65, 159, 106)';
@@ -44,13 +45,18 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         list.querySelector("#fuelStatus").textContent = `Fuel level too low for launch: ${pilot} | ${copilot} | ${fuelLevel} | ${cargoLevel}`;
         list.querySelector("#fuelStatus").style.color = 'rgb(199, 37, 78)';
         issueDetected = true;
+    } else {
+        list.querySelector('#fuelStatus').innerHTML = 'Fuel level high enough for launch';
     }
     
     if(10000 < Number(cargoLevel)){
         list.querySelector("#cargoStatus").innerHTML = "Cargo mass too heavy for launch";
         list.querySelector("#cargoStatus").style.color = 'rgb(199, 37, 78)';
         issueDetected = true;
+    } else {
+        list.querySelector('#cargoStatus').innerHTML = 'Cargo mass low enough for launch';
     }
+
     list.style.visibility = "visible";
     if(issueDetected === true){
         launchStat.style.color = 'rgb(199, 37, 78)';
