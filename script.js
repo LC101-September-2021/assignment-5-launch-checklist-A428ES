@@ -4,7 +4,6 @@ window.addEventListener("load", function() {
 
     formSubmit.addEventListener("submit", function(event) {
         let stopSubmit = false; // for stopping form submission
-        let failedItems = []; // list of failed items
 
         // put all form inputs in an array for mapping, and access
         let formArray = [formSubmit.pilotName.value, formSubmit.copilotName.value, formSubmit.fuelLevel.value, formSubmit.cargoMass.value]; 
@@ -34,20 +33,12 @@ window.addEventListener("load", function() {
         }
 
         // if the stopSubmit flag has been raised, terminate the submission
-        if(stopSubmit === true){
-            alert("submission failed");
-        } else {
-            // check fuel against guidelines, push into failed list if not acceptable
-            if(Number(formArray[2]) < 10000){
-                failedItems.push('fuelStatus:Fuel level too low for launch');
-            }
-
-            // check cargo against guidelines, push into failed list if not acceptable
-            if(Number(formArray[3]) > 10000){
-                failedItems.push('cargoStatus:Cargo mass too heavy for launch');
-            }
-            
-            formSubmission(document, failedItems, formArray[0], formArray[1], formArray[2], formArray[3]);
+        if(stopSubmit !== true){
+			event.preventDefault();
+			
+            formSubmission(document, document.getElementById("faultyItems"), formArray[0], formArray[1], formArray[2], formArray[3]);
+			
+			 event.preventDefault();
         }
 
         event.preventDefault();
