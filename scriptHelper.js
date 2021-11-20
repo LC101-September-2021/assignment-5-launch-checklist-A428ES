@@ -29,6 +29,9 @@ function validateInput(testInput) {
         return "Empty";
     }
  }
+ /*
+    ISSUE SEEMS TO BE THAT YOUR SCRIPT IS PULLING THE PREVIOUS INPUTS 
+*/
  
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
