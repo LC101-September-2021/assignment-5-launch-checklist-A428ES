@@ -10,7 +10,7 @@ window.addEventListener("load", event => {
         let formArray = [formSubmit.querySelector("input[name=pilotName]").value, formSubmit.querySelector("input[name=copilotName]").value, formSubmit.querySelector("input[name=fuelLevel]").value, formSubmit.querySelector("input[name=cargoMass]").value]; 
 
         // run all inputs through validate 
-        validArray = formArray.map(x => validateInput(x)); 
+        let validArray = formArray.map(x => validateInput(x)); 
 
         // if Empty is located end the submission
         if(validArray.includes("Empty")){
@@ -20,13 +20,13 @@ window.addEventListener("load", event => {
         } else { 
             // if string requirements are not met, flag to end submit and alert user
             if(validArray[0] !== "Not a Number" || validArray[1] !== "Not a Number"){
-                alert("Pilot and Co-Pilot entires must be a string.");
+                alert("Pilot and Co-Pilot entries must be a string.");
 
                 stopSubmit = true;
             }
 
             // if numerical requirements are not met, flag to end submit and alert user
-            if(validArray[2] !== "Is a Number" || validArray[2] !== "Is a Number"){
+            if(validArray[2] !== "Is a Number" || validArray[3] !== "Is a Number"){
                 alert("Fuel Level and Cargo Mass must be numbers.");
 
                 stopSubmit = true;
@@ -34,7 +34,8 @@ window.addEventListener("load", event => {
         }
         
         if(stopSubmit !== true){
-             formSubmission(document, document.getElementById("faultyItems"), formArray[0], formArray[1], formArray[2], formArray[3]);
+            let list = document.getElementById("faultyItems");
+            formSubmission(window.document, list, formArray[0], formArray[1], formArray[2], formArray[3]);
         }
 		
 		event.preventDefault();
