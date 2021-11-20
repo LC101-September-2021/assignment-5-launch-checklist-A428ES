@@ -1,9 +1,9 @@
 // Write your JavaScript code here!
 window.addEventListener("load", event => {
     document.getElementById("faultyItems").style.visibility = "hidden";
-
-    formSubmit.addEventListener("submit", event => {
-        let formSubmit = document.querySelector("form");
+	let formSubmit = document.getElementById("formSubmit");
+    
+	formSubmit.addEventListener("submit", event => {
         event.preventDefault();
 
         let stopSubmit = false; // for stopping form submission
