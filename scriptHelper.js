@@ -38,7 +38,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     list.querySelector("#cargoStatus").style.color = 'rgb(65, 159, 106)';
     
     if(Number(fuelLevel) < 10000){
-        list.querySelector("#fuelStatus").textContent = `Fuel level too low for launch${fuelLevel}`;
+        list.querySelector("#fuelStatus").textContent = `Fuel level too low for launch`;
         list.querySelector("#fuelStatus").style.color = 'rgb(199, 37, 78)';
         issueDetected = true;
     }

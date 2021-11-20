@@ -1,15 +1,15 @@
 // Write your JavaScript code here!
-window.addEventListener("load", function() {
+window.addEventListener("load", event => {
     document.getElementById("faultyItems").style.visibility = "hidden";
     let formSubmit = document.querySelector("form");
 
-    formSubmit.addEventListener("submit", function(event) {
+    formSubmit.addEventListener("submit", event => {
         event.preventDefault();
-        
+
         let stopSubmit = false; // for stopping form submission
 
         // put all form inputs in an array for mapping, and access
-        let formArray = [formSubmit.pilotName.value, formSubmit.copilotName.value, formSubmit.fuelLevel.value, formSubmit.cargoMass.value]; 
+        let formArray = [formSubmit.querySelector("input[name=pilotName]").value, formSubmit.querySelector("input[name=copilotName]").value, formSubmit.querySelector("input[name=fuelLevel]").value, formSubmit.querySelector("input[name=cargoMass]").value]; 
 
         // run all inputs through validate 
         validArray = formArray.map(x => validateInput(x)); 
