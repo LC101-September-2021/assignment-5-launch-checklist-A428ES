@@ -37,7 +37,7 @@ window.addEventListener("load", event => {
 
         // if the stopSubmit flag has been raised, terminate the submission
         if(stopSubmit !== true){
-            formSubmission(document, document.getElementById("faultyItems"), formArray[0], formArray[1], formArray[2], formArray[3]);
+           // formSubmission(document, document.getElementById("faultyItems"), formArray[0], formArray[1], formArray[2], formArray[3]);
         }
     });
     
