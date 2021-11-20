@@ -43,7 +43,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         issueDetected = true;
     }
     
-    if(Number(cargoLevel) > 10000){
+    if(10000 < Number(cargoLevel)){
         list.querySelector("#cargoStatus").innerHTML = "Cargo mass too heavy for launch";
         list.querySelector("#cargoStatus").style.color = 'rgb(199, 37, 78)';
         issueDetected = true;
