@@ -66,8 +66,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         launchStat.innerHTML = "Shuttle is ready for Launch";
     }
 
-    list.querySelector("#pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`;
-    list.querySelector("#copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
+    list.querySelector("#pilotStatus").innerHTML = `Pilot ${pilot} is Ready for launch`;
+    list.querySelector("#copilotStatus").innerHTML = `Co-pilot ${copilot} is Ready for launch`;
 }
 
 async function myFetch() {
