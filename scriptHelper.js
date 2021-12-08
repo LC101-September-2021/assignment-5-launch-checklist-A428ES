@@ -60,14 +60,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     list.style.visibility = "visible";
     if(issueDetected === true){
         launchStat.style.color = 'rgb(199, 37, 78)';
-        launchStat.innerHTML = "Shuttle Not ready for Launch";
+        launchStat.innerHTML = "Shuttle Not Ready for Launch";
     } else {
         launchStat.style.color = 'rgb(65, 159, 106)';
-        launchStat.innerHTML = "Shuttle is ready for Launch";
+        launchStat.innerHTML = "Shuttle is Ready for Launch";
     }
 
-    list.querySelector("#pilotStatus").innerHTML = `Pilot ${pilot} is Ready for launch`;
-    list.querySelector("#copilotStatus").innerHTML = `Co-pilot ${copilot} is Ready for launch`;
+    list.querySelector("#pilotStatus").innerHTML = `Pilot ${pilot} is ready for launch`;
+    list.querySelector("#copilotStatus").innerHTML = `Co-pilot ${copilot} is ready for launch`;
 }
 
 async function myFetch() {
